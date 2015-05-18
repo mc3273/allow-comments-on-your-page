@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  {% if posts %}
+  {% for post in posts %}
+    <div class="post">
+      <div class="post-user">
+        {% if post.author.name %}
+        <h1><em>{{post.author.name}}</em></h1>
+        {% else %}
+        <h1><em>Anonymous Poster</em></H1>
+        {% endif %}
+      </div>
+      <div class="post-content">
+        <blockquote>{{post.content}}</blockquote>
+      </div>
+    </div>
+  {% endfor %}
+  {% else %}
+    <br>
+    <h1>There are no posts! Come on you can do it!!!!!</h1>
+  {% endif %}
+{% endblock %}
